@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="Thinker" ng-controller="mainCtrl">
+<head>
+	<meta charset="UTF-8">
+	<title>Thinker - коллекция идей</title>
+	<meta name="Description" content="Thinker- сервис предназначенный для записи и хранения идей и разных мыслей">
+	<meta name="Keywords" content="мысли, идеи, заметки, на память, запомнить, записать, важное">
+	<link rel="icon" href="">
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-route.min.js"></script>
+<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
+<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
+</head>
+<body ng-view ng-style="body">
+	<header>
+		<div class="container">
+			<a style="display: none;" href="#/"></a>
+			<a href="#/main">Считаем что пользователь прошел авторизацию(Используя Route)</a>
+		</div>
+	</header>
+	<main>		
+		<form class="loginForm" method="post" novalidate>
+			<input name="loginEmail" type="email" ng-model="loginEmail" placeholder="Введите e-mail" required><br>
+			<input name="loginPassword" type="password" ng-model="loginPassword" placeholder="Введите пароль" required><br>
+			<a href="#/registration">Зарегистрироваться</a><br>
+			<input class="btn" type="submit" value="ВХОД">
+		</form>
+	</main>
+	<footer>
+		<div class="container"></div>
+	</footer>
+	<script>
+		var app = angular.module("Thinker", ["ngRoute"]);
+
+		app.controller('loginCtrl', function($scope, $http) {
+			// НЕ РАБОТАЕТ ФОН!!!
+			$scope.body = {'background-image' : 'url(/images/background.jpg)',
+		                   'background-position' : '50% 50%',
+		               	   'background-repeat' : 'no-repeat',
+		               	   'background-attachment' : 'fixed',
+		               	   'background-color' : '#44575d'};
+			// $http.get("#").then(function(response) {
+			// 	$scope.userData = response.data.records;
+			// });
+		});
+
+		app.controller('mainCtrl', function($scope) {
+			$scope.body = {'background-image': '#ebebeb'};
+			$scope.newIdeaShow = false;
+			$scope.shadowShow = false;
+			$scope.selectedIdeaShow = false;
+			$scope.adminShow = false;
+
+			$scope.newIdeaShowF = function() {
+				$scope.shadowShow = true;
+				$scope.newIdeaShow = true;
+			};
+			$scope.selectedIdeaShowF = function() {
+				$scope.selectedIdeaShow = true;
+				$scope.shadowShow = true;
+			};
+			$scope.close = function() {
+				if ($scope.newIdeaShow) $scope.newIdeaShow = false;
+				if ($scope.shadowShow) $scope.shadowShow = false;
+				if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
+				if ($scope.adminShow) $scope.adminShow = false;
+			};
+			$scope.shadowClick = function() {
+				if ($scope.newIdeaShow) $scope.newIdeaShow = false;
+				if ($scope.shadowShow) $scope.shadowShow = false;
+				if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
+			};
+			$scope.adminShowF = function() {
+				$scope.adminShow = !$scope.adminShow;
+			};
+		});
+
+		// $scope.showComplex = function() {
+		// 	ModalService.showModal({
+		// 		templateUrl: "complex/complex.html",
+		// 		controller: "ComplexController",
+		// 		inputs: {
+		// 			title: "A More Complex Example"
+		// 		}
+		// 	}).then(function(modal) {
+		// 		modal.element.modal();
+		// 		modal.close.then(function(result) {
+		// 			$scope.complexResult  = "Name: " + result.name + ", age: " + result.age;
+		// 		});
+		// 	});
+		// };
+
+
+		app.config(function($routeProvider) {
+			$routeProvider
+			.when("/", {
+				templateUrl : "index.html",
+				controller : "loginCtrl"
+			})
+			.when("/registration", {
+				templateUrl : "registration.html",
+				controller : "loginCtrl"
+			})
+			.when("/main", {
+				templateUrl : "main.html",
+				controller : "mainCtrl"
+			})			
+			.when("/userideas", {
+				templateUrl : "userideas.html",
+				controller : "mainCtrl"
+			})
+			.otherwise({
+				redirectTo : "index.html" 		
+			});
+		});
+	</script>
+</body>
+</html>

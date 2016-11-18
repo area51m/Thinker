@@ -1,0 +1,96 @@
+<header class="mainHeader">
+	<div class="container">
+		<a style="display: none;" href="#/main"></a>
+		<a href="#/">Возврат на страницу авторизации (Временно)</a>
+	</div>
+</header>
+<main>		
+	<div class="container">
+		<div class="content">
+			<ul class="upperMenu clearfix">
+				<li><input type="search" placeholder="Ведите запрос для поиска"></li>
+				<li><button ng-click="">Искать</button></li>
+				<li><button ng-click="newIdeaShowF()">Добавить идею</button></li>
+				<li><a href="#/userideas"><button>Мои идеи</button></a></li>
+				<li><button ng-click="adminShowF()">Панель админа</button></li>
+			</ul>
+			<ul class="tabs clearfix">
+				<h1>Эта область будет обрабатываться из данных с сервера и на данный момент она условная</h1>
+				<!-- <li ng-repeat="x in ideas">{{x}}</li> будет что-то в этом роде, где х одна идея, а ideas полученный массив -->
+				<li ng-click="selectedIdeaShowF()">
+					<img src="" alt="" height="50" width="50">
+					<div class="likes"><!-- обработка лайков --></div>
+					<p> ТЕСТОВЫЙ КЛИК НА ВЫБРАННУЮ ИДЕЮ<!-- краткое описание --></p>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="shadow" ng-show="shadowShow" ng-click="shadowClick()"></div>
+
+			<form ng-show="newIdeaShow" class="newIdea" method="post">
+				<div class="newIdeaHeader clearfix">
+					<h2>Новая идея</h2>
+					<button type="button" ng-click="close()">&times;</button>
+				</div>
+				<input type="text" placeholder="Название идеи">
+				<textarea name="" id="" cols="0" rows="10" placeholder="Описание идеи"></textarea>
+				<input type="file">
+				<input type="text" placeholder="Тэги">
+				<button>Записать</button>
+				<button ng-click="close()">Отмена</button>
+			</form>
+
+			<div ng-show="selectedIdeaShow" class="selectedIdea">
+				<div class="selectedIdeaHeader clearfix">
+					<h2>Название выбранной идеи</h2>
+					<button type="button" ng-click="close()">&times;</button>
+				</div>
+				<div class="ideaImages">
+					<img src="" alt="" height="200" width="100">
+				</div>
+				<p>Описание задумки подробнее</p>
+				<div class="ideaTags">#круть #креслодиван</div>
+				<div class="ideaOwner">Автор: <span>Все тот же Вася</span></div>
+				<div class="likes">7yes     1no</div>
+				<div class="ideaComments">
+					<h3>Комментарии</h3>
+					<span class="comment">
+						<img src="" alt="">
+						<p>Автор</p>
+						<p>Текст по поводу и без</p>
+					</span>
+				</div>					
+			</div>
+			<div class="adminPanel" ng-show="adminShow">
+				<table>
+				<button type="button" ng-click="close()">&times;</button>
+				<caption>Панель администратора</caption>
+				<tr><th>id</th><th>Login</th><th>e-mail</th><th>Premission</th></tr>
+				<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
+				<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
+				<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
+				</table>
+			</div>			
+		</div>
+	</div>
+</main>
+<footer class="mainFooter">
+	<div class="container"></div>
+</footer>

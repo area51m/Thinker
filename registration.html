@@ -1,0 +1,19 @@
+<header>
+	<div class="container">
+		<a style="display: none;" href="#/registration"></a>
+
+	</div>
+</header>
+<main>		
+	<form class="registerForm" action="post" action="" novalidate>
+		<input name="registerLogin" type="text" ng-model="login" placeholder="Введите логин" required><br>
+		<input name="registerEmail" type="email" ng-model="email" placeholder="Введите e-mail" required><br>
+		<input name="registerPassword1" type="password" ng-model="password" placeholder="Введите пароль" required><br>
+		<input name="registerPassword2" type="password" ng-model="password" placeholder="Повторите пароль" required><br>
+		<a ng-click="newUser = false" href="#/">Отмена</a><br>
+		<input class="btn" type="submit" value="РЕГИСТРАЦИЯ">
+	</form>
+</main>
+<footer>
+	<div class="container"></div>
+</footer>

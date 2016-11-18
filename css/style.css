@@ -1,0 +1,174 @@
+header, footer {
+	width: 100%;
+	height: 50px;
+	background-color: #606060;
+	position: fixed;
+}
+header {
+	top: 0;
+	left: 0;
+	z-index: 1001;
+}
+footer {
+	bottom: 0;
+	left: 0;
+	z-index: 1001;
+}
+.bodyDiv {
+	width: 100%;
+	height: 100%;
+}
+.container {
+	width: 990px;
+	height: 100%;
+/*	border: 2px solid red;*/
+	margin: 0 auto;
+	padding: 0;
+}
+.loginForm,
+.registerForm {
+	position: absolute;
+	width: 360px;
+	padding: 20px;
+	left: 50%;
+	top: 50%;
+	border: 2px solid #ff9c00;
+	border-radius: 5px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.loginForm {
+    height: 190px;
+    margin: -100px 0 0 -180px;
+}
+.registerForm {
+	height: 270px;
+    margin: -150px 0 0 -180px;
+}
+.loginForm input,
+.registerForm input {
+	width: 300px;
+	height: 30px;
+	margin: 5px;
+	outline: none;
+	border: 1px solid #ff9c00;
+}
+.loginForm a,
+.registerForm a {
+	color: #ff9c00;
+	text-decoration: none;
+}
+.loginForm a:hover,
+.registerForm a:hover {
+	text-decoration: underline;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+form .btn {
+	width: 200px;
+	height: 40px;
+	border: 2px solid #ff9c00;
+	background-color: rgba(255, 255, 255, 0.4);
+	font-weight: bold;
+	font-size: 20px;
+	color: #ff9c00;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: rgba(255, 255, 255, 1);
+}
+.content {
+	width: 100%;
+	height: 100%;
+	padding: 60px 20px 50px 20px;
+	margin: 0 auto;
+	background-color: #E4E4E4;
+	position: relative;
+}
+.upperMenu,
+.tabs {
+	list-style: none;
+/*	border: 2px solid red;*/
+}
+.tabs {
+	padding: 10px;
+}
+.upperMenu li,
+.tabs li {
+	float: left;
+}
+.tabs li {
+	width: 200px;
+	height: 200px;
+	border: 2px solid #ff9c00;
+	margin: 10px;
+	cursor: pointer;
+}
+.newIdea, .selectedIdea {
+	position: fixed;
+	width: 90vh;
+	min-height: 50px;
+	left: 50%;
+	top: 50%;
+	z-index: 1000;
+	background-color: #ebebeb;
+	padding: 20px;
+	margin: -35vh 0 0 -45vh;
+}
+.selectedIdea {
+	background-color: #ebebeb;
+}
+.newIdea > *,
+.selectedIdea > *{
+	display: block;
+	width: 100%;
+	margin: 5px;
+}
+.newIdeaHeader, 
+.selectedIdeaHeader {
+	background-color: white;
+}
+.newIdeaHeader h2, 
+.selectedIdeaHeader h2{
+	float: left;
+	display: block;
+	width: 80%;
+	margin: 5px;
+}
+.newIdeaHeader button, 
+.selectedIdeaHeader button {
+	float: right;
+}
+.shadow {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 900;
+}
+.adminPanel {
+	position: fixed;
+	top: 20%;
+	right: 0;
+	width: 300px;
+	min-height: 100px;
+	background-color: lightgrey;
+	z-index: 800;
+}
+.adminPanel table {
+	border-collapse: collapse;
+	width: 100%;
+	background-color: white;
+	border: 1px solid black;
+}
+.adminPanel table tr,
+.adminPanel table td,
+.adminPanel table th {
+	border: 1px solid black;
+	text-align: center;
+}
