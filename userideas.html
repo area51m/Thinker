@@ -1,93 +1,101 @@
-<header class="mainHeader">
-	<div class="container">
-		<a style="display: none;" href="#/userideas"></a>
-		<a href="#/">Возврат на страницу авторизации (Временно)</a>
-	</div>
-</header>
-<main>		
-	<div class="container">
-		<div class="content">
-			<ul class="upperMenu clearfix">
-				<li><input type="search" placeholder="Ведите запрос для поиска"></li>
-				<li><button ng-click="">Искать</button></li>
-				<li><button ng-click="newIdeaShowF()">Добавить идею</button></li>
-				<li><a href="#/main"><button>Все идеи</button></a></li>
-				<li><button ng-click="adminShowF()">Панель админа</button></li>
-			</ul>
-			<ul class="tabs clearfix">
-				<h1>Идиеи КОНКРЕТНОГО пользователя обрабатываться из данных с сервера и на данный момент она условная</h1>
-				<!-- <li ng-repeat="x in ideas">{{x}}</li> будет что-то в этом роде, где х одна идея, а ideas полученный массив -->
-				<li ng-click="selectedIdeaShowF()">
-					<img src="" alt="" height="50" width="50">
-					<div class="likes"><!-- обработка лайков --></div>
-					<p> ТЕСТОВЫЙ КЛИК НА ВЫБРАННУЮ ИДЕЮ<!-- краткое описание --></p>
-				</li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-			<div class="shadow" ng-show="shadowShow" ng-click="shadowClick()"></div>
+<!DOCTYPE html>
+<html lang="ru" ng-app="Thinker">
+<head>
+	<meta charset="UTF-8">
+	<title>Thinker - коллекция идей</title>
+	<meta name="Description" content="Thinker- сервис предназначенный для записи и хранения идей и разных мыслей">
+	<meta name="Keywords" content="мысли, идеи, заметки, на память, запомнить, записать, важное">
+	<link rel="icon" href="">
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-route.min.js"></script>
+	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
+</head>
+<body ng-style="body">
+	<header class="mainHeader">
+		<div class="container">
+			<a href="index.html">Возврат на страницу авторизации (Временно)</a>
+		</div>
+	</header>
+	<main ng-controller="mainCtrl">		
+		<div class="container">
+			<div class="content">
+				<ul class="upperMenu clearfix">
+					<li><input type="search" placeholder="Ведите запрос для поиска"></li>
+					<li><button ng-click="">Искать</button></li>
+					<li><button ng-click="newIdeaShowF()">Добавить идею</button></li>
+					<li><a href="main.html"><button>Все идеи</button></a></li>
+					<li><a href="admin.html"><button>Панель админа</button></a></li>
+				</ul>
+				<ul class="tabs clearfix">
+					<h1>Идиеи КОНКРЕТНОГО пользователя обрабатываться из данных с сервера и на данный момент она условная</h1>
+					<!-- <li ng-repeat="x in ideas">{{x}}</li> будет что-то в этом роде, где х одна идея, а ideas полученный массив -->
+					<li ng-click="selectedIdeaShowF()">
+						<img src="" alt="" height="50" width="50">
+						<div class="likes"><!-- обработка лайков --></div>
+						<p> ТЕСТОВЫЙ КЛИК НА ВЫБРАННУЮ ИДЕЮ<!-- краткое описание --></p>
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="shadow" ng-show="shadowShow" ng-click="shadowClick()"></div>
 
-			<form ng-show="newIdeaShow" class="newIdea" method="post">
-				<div class="newIdeaHeader clearfix">
-					<h2>Новая идея</h2>
-					<button type="button" ng-click="close()">&times;</button>
-				</div>
-				<input type="text" placeholder="Название идеи">
-				<textarea name="" id="" cols="0" rows="10" placeholder="Описание идеи"></textarea>
-				<input type="file">
-				<input type="text" placeholder="Тэги">
-				<button>Записать</button>
-				<button ng-click="close()">Отмена</button>
-			</form>
+				<form ng-show="newIdeaShow" class="newIdea" method="post">
+					<div class="newIdeaHeader clearfix">
+						<h2>Новая идея</h2>
+						<button type="button" ng-click="close()">&times;</button>
+					</div>
+					<input type="text" placeholder="Название идеи">
+					<textarea name="" id="" cols="0" rows="10" placeholder="Описание идеи"></textarea>
+					<input type="file">
+					<input type="text" placeholder="Тэги">
+					<button>Записать</button>
+					<button ng-click="close()">Отмена</button>
+				</form>
 
-			<div ng-show="selectedIdeaShow" class="selectedIdea">
-				<div class="selectedIdeaHeader clearfix">
-					<h2>Название выбранной идеи</h2>
-					<button type="button" ng-click="close()">&times;</button>
+				<div ng-show="selectedIdeaShow" class="selectedIdea">
+					<div class="selectedIdeaHeader clearfix">
+						<h2>Название выбранной идеи</h2>
+						<button type="button" ng-click="close()">&times;</button>
+					</div>
+					<div class="ideaImages">
+						<img src="" alt="" height="200" width="100">
+					</div>
+					<p>Описание задумки подробнее</p>
+					<div class="ideaTags">#круть #креслодиван</div>
+					<div class="ideaOwner">Автор: <span>Все тот же Вася</span></div>
+					<div class="likes">7yes     1no</div>
+					<div class="ideaComments">
+						<h3>Комментарии</h3>
+						<span class="comment">
+							<img src="" alt="">
+							<p>Автор</p>
+							<p>Текст по поводу и без</p>
+						</span>
+					</div>					
 				</div>
-				<div class="ideaImages">
-					<img src="" alt="" height="200" width="100">
-				</div>
-				<p>Описание задумки подробнее</p>
-				<div class="ideaTags">#круть #креслодиван</div>
-				<div class="ideaOwner">Автор: <span>Все тот же Вася</span></div>
-				<div class="likes">7yes     1no</div>
-				<div class="ideaComments">
-					<h3>Комментарии</h3>
-					<span class="comment">
-						<img src="" alt="">
-						<p>Автор</p>
-						<p>Текст по поводу и без</p>
-					</span>
-				</div>					
-			</div>
-			<div class="adminPanel" ng-show="adminShow">
-				<table>
-				<button type="button" ng-click="close()">&times;</button>
-				<caption>Панель администратора</caption>
-				<tr><th>id</th><th>Login</th><th>e-mail</th><th>Premission</th></tr>
-				<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
-				<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
-				<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
-				</table>
-			</div>			
 			</div>
 		</div>
 	</div>
@@ -95,3 +103,34 @@
 <footer class="mainFooter">
 	<div class="container"></div>
 </footer>
+<script>
+	var app = angular.module("Thinker", []);
+
+	app.controller('mainCtrl', function($scope) {
+		$scope.body = {'background-image': '#ebebeb'};
+		$scope.newIdeaShow = false;
+		$scope.shadowShow = false;
+		$scope.selectedIdeaShow = false;
+		
+		$scope.newIdeaShowF = function() {
+			$scope.shadowShow = true;
+			$scope.newIdeaShow = true;
+		};
+		$scope.selectedIdeaShowF = function() {
+			$scope.selectedIdeaShow = true;
+			$scope.shadowShow = true;
+		};
+		$scope.close = function() {
+			if ($scope.newIdeaShow) $scope.newIdeaShow = false;
+			if ($scope.shadowShow) $scope.shadowShow = false;
+			if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
+		};
+		$scope.shadowClick = function() {
+			if ($scope.newIdeaShow) $scope.newIdeaShow = false;
+			if ($scope.shadowShow) $scope.shadowShow = false;
+			if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
+		};			
+	});
+</script>
+</body>
+</html>

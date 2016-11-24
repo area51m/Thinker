@@ -152,13 +152,9 @@ form .btn {
 	z-index: 900;
 }
 .adminPanel {
-	position: fixed;
-	top: 20%;
-	right: 0;
-	width: 300px;
+	width: 100%;
 	min-height: 100px;
 	background-color: lightgrey;
-	z-index: 800;
 }
 .adminPanel table {
 	border-collapse: collapse;
