@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<script type="text/javascript" src="js/angular.min.js"></script>
-	<script type="text/javascript" src="js/angular-route.min.js"></script>
+<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
@@ -27,10 +27,10 @@
 			<div class="content">
 				<ul class="upperMenu clearfix">
 					<li><input type="search" placeholder="Ведите запрос для поиска"></li>
-					<li><button ng-click="">Искать</button></li>
-					<li><button ng-click="newIdeaShowF()">Добавить идею</button></li>
-					<li><a href="main.html"><button>Все идеи</button></a></li>
-					<li><a href="admin.html"><button>Панель админа</button></a></li>
+					<li><button ng-click="">Search</button></li>
+					<li><button ng-click="newIdeaShowF()">Add Idea</button></li>
+					<li><a href="main.html"><button>All Ideas</button></a></li>
+					<li><a href="admin.html"><button>Admin Panel</button></a></li>
 				</ul>
 				<ul class="tabs clearfix">
 					<h1>Идиеи КОНКРЕТНОГО пользователя обрабатываться из данных с сервера и на данный момент она условная</h1>
@@ -64,15 +64,15 @@
 
 				<form ng-show="newIdeaShow" class="newIdea" method="post">
 					<div class="newIdeaHeader clearfix">
-						<h2>Новая идея</h2>
+						<h2>New Idea</h2>
 						<button type="button" ng-click="close()">&times;</button>
 					</div>
-					<input type="text" placeholder="Название идеи">
-					<textarea name="" id="" cols="0" rows="10" placeholder="Описание идеи"></textarea>
+					<input type="text" placeholder="Name">
+					<textarea name="" id="" cols="0" rows="10" placeholder="Discription"></textarea>
 					<input type="file">
-					<input type="text" placeholder="Тэги">
-					<button>Записать</button>
-					<button ng-click="close()">Отмена</button>
+					<input type="text" placeholder="Tags">
+					<button>Store</button>
+					<button ng-click="close()">Cancel</button>
 				</form>
 
 				<div ng-show="selectedIdeaShow" class="selectedIdea">

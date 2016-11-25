@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="ru" ng-app="Thinker">
+<html lang="en" ng-app="Thinker">
 <head>
 	<meta charset="UTF-8">
-	<title>Thinker - коллекция идей</title>
-	<meta name="Description" content="Thinker- сервис предназначенный для записи и хранения идей и разных мыслей">
-	<meta name="Keywords" content="мысли, идеи, заметки, на память, запомнить, записать, важное">
+	<title>Thinker | Main</title>
+	<meta name="Description" content="Thinker - is service designed for recording, storing ideas and different thoughts">
+	<meta name="Keywords" content="Thinker, codeart, dataart, мысли, идеи, заметки, на память, запомнить, записать, важное">
 	<link rel="icon" href="">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<script type="text/javascript" src="js/angular.min.js"></script>
-	<script type="text/javascript" src="js/angular-route.min.js"></script>
+<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
 </head>
-<body ng-view ng-style="body">
+<body class="loginBody" ng-controller="loginCtrl">
 	<div>
 		<header>
 			<div class="container">
@@ -24,11 +24,19 @@
 			</div>
 		</header>
 		<main>		
-			<form class="loginForm" method="post" novalidate>
-				<input name="username" type="text" ng-model="username" placeholder="Введите логин" required><br>
-				<input name="password" type="password" ng-model="password" placeholder="Введите пароль" required><br>
-				<a href="#/registration">Зарегистрироваться</a><br>
-				<input class="btn" type="submit" value="ВХОД">
+			<form class="loginForm" method="post" ng-show="loginForm" novalidate>
+				<input name="username" type="text" ng-model="username" placeholder="Input username" required><br>
+				<input name="password" type="password" ng-model="password" placeholder="Input password" required><br>
+				<a ng-click="loginFormF()" href="#">Registration</a><br>
+				<input class="btn" type="submit" value="Sign In">
+			</form>
+			<form class="registerForm" action="post" ng-show="registerForm" action="" novalidate>
+				<input name="registerLogin" type="text" ng-model="login" placeholder="Username" required><br>
+				<input name="registerEmail" type="email" ng-model="email" placeholder="E-mail address" required><br>
+				<input name="registerPassword1" type="password" ng-model="password" placeholder="Password" required><br>
+				<input name="registerPassword2" type="password" ng-model="password" placeholder="Confirm password" required><br>
+				<a ng-click="registerFormF()" href="#">Cancel</a><br>
+				<input class="btn" type="submit" value="Register">
 			</form>
 		</main>
 		<footer>
@@ -36,33 +44,20 @@
 		</footer>
 	</div>
 	<script>
-		var app = angular.module("Thinker", ["ngRoute"]);
+		var app = angular.module("Thinker", []);
 
-		app.controller('loginCtrl', function($scope, $http) {
-			// НЕ РАБОТАЕТ ФОН!!!
-			$scope.body = {'background-image' : 'url(/images/background.jpg)',
-			'background-position' : '50% 50%',
-			'background-repeat' : 'no-repeat',
-			'background-attachment' : 'fixed',
-			'background-color' : '#44575d'};
-			// $http.get("#").then(function(response) {
-			// 	$scope.userData = response.data.records;
-			// });
-		});
+		app.controller('loginCtrl', function($scope) {
+			$scope.loginForm = true;
+			$scope.registerForm = false;
 
-		app.config(function($routeProvider) {
-			$routeProvider
-			.when("/", {
-				templateUrl : "index.html",
-				controller : "loginCtrl"
-			})
-			.when("/registration", {
-				templateUrl : "registration.html",
-				controller : "loginCtrl"
-			})
-			.otherwise({
-				redirectTo : "index.html" 		
-			});
+			$scope.loginFormF = function() {
+				$scope.loginForm = !$scope.loginForm;
+				$scope.registerForm = !$scope.registerForm;
+			};
+			$scope.registerFormF = function() {
+				$scope.loginForm = !$scope.loginForm;
+				$scope.registerForm = !$scope.registerForm;
+			};			
 		});
 	</script>
 </body>
