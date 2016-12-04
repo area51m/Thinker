@@ -66,11 +66,11 @@
 					</div>
 					<ul class="ideaImages">
 						<li ng-repeat="y in selectedIdea.files">
-							<img ng-src="http://codeart-thinker.herokuapp.com/resources/thinker_files/{{selectedIdea.author.userId}}/{{selectedIdea.ideaId}}/{{selectedIdea.files[0]}}" alt="" height="100" width="100">
+							<img ng-src="http://codeart-thinker.herokuapp.com/resources/thinker_files/{{selectedIdea.author.userId}}/{{selectedIdea.ideaId}}/{{selectedIdea.files[$index]}}" alt="" height="100" width="100">
 						</li>
 					</ul>
 					<p>{{selectedIdea.name}}</p>
-					<p class="ideaTags" ng-repeat="tag in selectedIdea.tags">{{selectedIdea.tags[0]}} </p>
+					<p class="ideaTags" ng-repeat="tag in selectedIdea.tags">{{selectedIdea.tags[$index]}} </p>
 					<div class="ideaOwner">Автор: <span>{{selectedIdea.author.username}}</span></div>
 					<div class="likes">{{selectedIdeaLikes[0]}}yes     {{selectedIdeaLikes[1]}}no</div>
 					<div class="ideaComments">
