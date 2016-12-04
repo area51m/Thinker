@@ -11,7 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<script type="text/javascript" src="js/angular.min.js"></script>
-<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
@@ -25,6 +26,7 @@
 	<main ng-controller="mainCtrl">		
 		<div class="container">
 			<div class="content">
+
 				<ul class="upperMenu clearfix">
 					<li><input type="search" placeholder="Ведите запрос для поиска"></li>
 					<li><button ng-click="">Search</button></li>
@@ -32,34 +34,16 @@
 					<li><a href="userideas.html"><button>My Ideas</button></a></li>
 					<li><a href="admin.html"><button>Admin panel</button></a></li>
 				</ul>
+
 				<ul class="tabs clearfix">
 					<h1>Эта область будет обрабатываться из данных с сервера и на данный момент она условная</h1>
-					<!-- <li ng-repeat="x in ideas">{{x}}</li> будет что-то в этом роде, где х одна идея, а ideas полученный массив -->
-					<li ng-click="selectedIdeaShowF()">
-						<img src="" alt="" height="50" width="50">
-						<div class="likes"><!-- обработка лайков --></div>
-						<p> ТЕСТОВЫЙ КЛИК НА ВЫБРАННУЮ ИДЕЮ<!-- краткое описание --></p>
-					</li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li ng-repeat="x in ideas" ng-click="selectedIdeaShowF(x.ideaId)">
+						<img ng-src="http://codeart-thinker.herokuapp.com/resources/thinker_files/{{x.author.userId}}/{{x.ideaId}}/{{x.files[0]}}" alt="" height="50" width="50">
+						<div class="likes"></div>
+						<p>{{x.description}}</p>
+					</li>					
 				</ul>
+
 				<div class="shadow" ng-show="shadowShow" ng-click="shadowClick()"></div>
 
 				<form ng-show="newIdeaShow" class="newIdea" method="post">
@@ -77,16 +61,18 @@
 
 				<div ng-show="selectedIdeaShow" class="selectedIdea">
 					<div class="selectedIdeaHeader clearfix">
-						<h2>Название выбранной идеи</h2>
+						<h2>{{selectedIdea.description}}</h2>
 						<button type="button" ng-click="close()">&times;</button>
 					</div>
-					<div class="ideaImages">
-						<img src="" alt="" height="200" width="100">
-					</div>
-					<p>Описание задумки подробнее</p>
-					<div class="ideaTags">#круть #креслодиван</div>
-					<div class="ideaOwner">Автор: <span>Все тот же Вася</span></div>
-					<div class="likes">7yes     1no</div>
+					<ul class="ideaImages">
+						<li ng-repeat="y in selectedIdea.files">
+							<img ng-src="http://codeart-thinker.herokuapp.com/resources/thinker_files/{{selectedIdea.author.userId}}/{{selectedIdea.ideaId}}/{{selectedIdea.files[0]}}" alt="" height="100" width="100">
+						</li>
+					</ul>
+					<p>{{selectedIdea.name}}</p>
+					<p class="ideaTags" ng-repeat="tag in selectedIdea.tags">{{selectedIdea.tags[0]}} </p>
+					<div class="ideaOwner">Автор: <span>{{selectedIdea.author.username}}</span></div>
+					<div class="likes">{{selectedIdeaLikes[0]}}yes     {{selectedIdeaLikes[1]}}no</div>
 					<div class="ideaComments">
 						<h3>Комментарии</h3>
 						<span class="comment">
@@ -95,42 +81,14 @@
 							<p>Текст по поводу и без</p>
 						</span>
 					</div>					
-				</div>			
+				</div>
+
 			</div>
 		</div>
 	</main>
 	<footer class="mainFooter">
 		<div class="container"></div>
 	</footer>
-	<script>
-		var app = angular.module("Thinker", []);
-
-		app.controller('mainCtrl', function($scope) {
-			$scope.body = {'background-image': '#ebebeb'};
-			$scope.newIdeaShow = false;
-			$scope.shadowShow = false;
-			$scope.selectedIdeaShow = false;
-
-			$scope.newIdeaShowF = function() {
-				$scope.shadowShow = true;
-				$scope.newIdeaShow = true;
-			};
-			$scope.selectedIdeaShowF = function() {
-				$scope.selectedIdeaShow = true;
-				$scope.shadowShow = true;
-			};
-			$scope.close = function() {
-				if ($scope.newIdeaShow) $scope.newIdeaShow = false;
-				if ($scope.shadowShow) $scope.shadowShow = false;
-				if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
-				if ($scope.adminShow) $scope.adminShow = false;
-			};
-			$scope.shadowClick = function() {
-				if ($scope.newIdeaShow) $scope.newIdeaShow = false;
-				if ($scope.shadowShow) $scope.shadowShow = false;
-				if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
-			};
-		});
-	</script>
+	<script type="text/javascript" src="controller/mainCtrl.js"></script>
 </body>
 </html>

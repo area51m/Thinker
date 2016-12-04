@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<script type="text/javascript" src="js/angular.min.js"></script>
-<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
@@ -23,42 +23,29 @@
 				<a href="main.html">Считаем что пользователь прошел авторизацию(Используя Route)</a>
 			</div>
 		</header>
-		<main>		
-			<form class="loginForm" method="post" ng-show="loginForm" novalidate>
+		<main>	
+
+			<form class="loginForm" method="post" ng-show="loginForm" action="/login" novalidate>
 				<input name="username" type="text" ng-model="username" placeholder="Input username" required><br>
 				<input name="password" type="password" ng-model="password" placeholder="Input password" required><br>
-				<a ng-click="loginFormF()" href="#">Registration</a><br>
+				<a ng-click="switchFormF()" href="#">Registration</a><br>
 				<input class="btn" type="submit" value="Sign In">
 			</form>
-			<form class="registerForm" action="post" ng-show="registerForm" action="" novalidate>
+
+			<form class="registerForm" action="post" ng-show="registerForm" action="" enctype="application/json" novalidate>
 				<input name="registerLogin" type="text" ng-model="login" placeholder="Username" required><br>
 				<input name="registerEmail" type="email" ng-model="email" placeholder="E-mail address" required><br>
 				<input name="registerPassword1" type="password" ng-model="password" placeholder="Password" required><br>
 				<input name="registerPassword2" type="password" ng-model="password" placeholder="Confirm password" required><br>
-				<a ng-click="registerFormF()" href="#">Cancel</a><br>
+				<a ng-click="switchFormF()" href="#">Cancel</a><br>
 				<input class="btn" type="submit" value="Register">
 			</form>
+			
 		</main>
 		<footer>
 			<div class="container"></div>
 		</footer>
 	</div>
-	<script>
-		var app = angular.module("Thinker", []);
-
-		app.controller('loginCtrl', function($scope) {
-			$scope.loginForm = true;
-			$scope.registerForm = false;
-
-			$scope.loginFormF = function() {
-				$scope.loginForm = !$scope.loginForm;
-				$scope.registerForm = !$scope.registerForm;
-			};
-			$scope.registerFormF = function() {
-				$scope.loginForm = !$scope.loginForm;
-				$scope.registerForm = !$scope.registerForm;
-			};			
-		});
-	</script>
+	<script type="text/javascript" src="controller/loginCtrl.js"></script>
 </body>
 </html>
