@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Thinker">
+<html lang="ru" ng-app="Thinker">
 <head>
 	<meta charset="UTF-8">
 	<title>Thinker - коллекция идей</title>
@@ -11,8 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<script type="text/javascript" src="js/angular.min.js"></script>
-    <!-- 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script> -->
-	<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
+<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
@@ -23,7 +22,7 @@
 			<a href="index.html">Возврат на страницу авторизации (Временно)</a>
 		</div>
 	</header>
-	<main ng-controller="adminCtrl">		
+	<main ng-controller="mainCtrl">		
 		<div class="container">
 			<div class="content">
 				<ul class="upperMenu clearfix">
@@ -43,7 +42,9 @@
 					<table>
 						<caption>List of Users</caption>
 						<tr><th>id</th><th>Login</th><th>e-mail</th><th>Premission</th></tr>
-						<tr ng-repeat="x in users"><td>{{x.userId}}</td><td>{{x.username}}</td><td>{{x.email}}</td><td><input type="checkbox"></td></tr>
+						<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
+						<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
+						<tr><td>1</td><td>Vasya</td><td>Vasya@mail.com</td><td><input type="checkbox"></td></tr>
 					</table>
 				</div>	
 
@@ -53,6 +54,8 @@
 	<footer class="mainFooter">
 		<div class="container"></div>
 	</footer>
-	<script type="text/javascript" src="controller/adminCtrl.js"></script>
+	<script>
+		
+	</script>
 </body>
 </html>
