@@ -14,17 +14,17 @@ app.controller('mainCtrl', function($scope, $http, $log) {
 	$scope.selectedIdeaShowF = function(ideaId) {
 		$scope.selectedIdeaShow = true;
 		$scope.shadowShow = true;
-		$http.get("http://codeart-thinker.herokuapp.com/restapi/ideas/" + ideaId)
+		$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/" + ideaId)
 		.then(function(response){
 			$scope.selectedIdea = response.data;
         		//console.log($scope.selectedIdea);
         	});
-		$http.get("http://codeart-thinker.herokuapp.com/restapi/likes/idea" + ideaId)
+		$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/likes/idea" + ideaId)
 		.then(function(response){
 			$scope.selectedIdeaLikes = response.data;
         		//console.log($scope.selectedIdeaLikes);
         	});
-		$http.get("http://codeart-thinker.herokuapp.com/restapi/comments/idea" + ideaId)
+		$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/comments/idea" + ideaId)
 		.then(function(response){
 			$scope.selectedIdeaComments = response.data;
 				//console.log($scope.selectedIdeaComments);
@@ -45,7 +45,7 @@ app.controller('mainCtrl', function($scope, $http, $log) {
 		if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
 	};
 
-	$http.get("http://codeart-thinker.herokuapp.com/restapi/ideas/part")
+	$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/part")
 	.then(function(response){
 		$scope.ideas = response.data;
         	//console.log($scope.ideas);
