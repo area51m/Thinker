@@ -5,14 +5,13 @@
 	<title>Thinker | Main</title>
 	<meta name="Description" content="Thinker - is service designed for recording, storing ideas and different thoughts">
 	<meta name="Keywords" content="Thinker, codeart, dataart, мысли, идеи, заметки, на память, запомнить, записать, важное">
-	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<script type="text/javascript" src="js/angular.min.js"></script>
-<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
@@ -24,46 +23,29 @@
 				<a href="main.html">Считаем что пользователь прошел авторизацию(Используя Route)</a>
 			</div>
 		</header>
-		<div class="regestration ">
-			<div class="site-logo"><img src="images/Line_copy.png" alt="" /></div>
-			<p class="orange-text entry">thinker</p><p class="white-text entry">is the service which halp you remember your ideas</p>
+		<main>	
 
-			<form class="loginForm" method="post" ng-show="loginForm" novalidate>
-				<a ng-click="loginFormF()" href="#">Registration</a><br>
-				<input name="username" placeholder="Email" type="text" ng-model="username" placeholder="Input username" required><br>
-				<input name="password" placeholder="Password" type="password" ng-model="password" placeholder="Input password" required><br>
-				<p class="bottom-text">By using up you agree to our</p>
-        <p class="bottom-text-underline">Teams of Service</p><br>
+			<form class="loginForm" method="post" ng-show="loginForm" action="/login" novalidate>
+				<input name="username" type="text" ng-model="username" placeholder="Input username" required><br>
+				<input name="password" type="password" ng-model="password" placeholder="Input password" required><br>
+				<a ng-click="switchFormF()" href="#">Registration</a><br>
 				<input class="btn" type="submit" value="Sign In">
 			</form>
-			<form class="registerForm" action="post" ng-show="registerForm" action="" novalidate>
-				<a ng-click="registerFormF()" href="#">Cancel</a><br>
+
+			<form class="registerForm" action="post" ng-show="registerForm" action="" enctype="application/json" novalidate>
 				<input name="registerLogin" type="text" ng-model="login" placeholder="Username" required><br>
 				<input name="registerEmail" type="email" ng-model="email" placeholder="E-mail address" required><br>
 				<input name="registerPassword1" type="password" ng-model="password" placeholder="Password" required><br>
 				<input name="registerPassword2" type="password" ng-model="password" placeholder="Confirm password" required><br>
-
+				<a ng-click="switchFormF()" href="#">Cancel</a><br>
 				<input class="btn" type="submit" value="Register">
 			</form>
-		</div>
-		
+			
+		</main>
+		<footer>
+			<div class="container"></div>
+		</footer>
 	</div>
-	<script>
-		var app = angular.module("Thinker", []);
-
-		app.controller('loginCtrl', function($scope) {
-			$scope.loginForm = true;
-			$scope.registerForm = false;
-
-			$scope.loginFormF = function() {
-				$scope.loginForm = !$scope.loginForm;
-				$scope.registerForm = !$scope.registerForm;
-			};
-			$scope.registerFormF = function() {
-				$scope.loginForm = !$scope.loginForm;
-				$scope.registerForm = !$scope.registerForm;
-			};
-		});
-	</script>
+	<script type="text/javascript" src="controller/loginCtrl.js"></script>
 </body>
 </html>
