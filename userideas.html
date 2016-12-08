@@ -1,109 +1,122 @@
 <!DOCTYPE html>
-<html lang="ru" ng-app="Thinker">
+<html lang="en" ng-app="Thinker">
 <head>
-	<meta charset="UTF-8">
-	<title>Thinker - коллекция идей</title>
-	<meta name="Description" content="Thinker- сервис предназначенный для записи и хранения идей и разных мыслей">
-	<meta name="Keywords" content="мысли, идеи, заметки, на память, запомнить, записать, важное">
-	<link rel="icon" href="">
-	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">	
-	<script type="text/javascript" src="js/angular.min.js"></script>
-<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
-	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
-	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
-	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
+    <meta charset="UTF-8">
+    <title>Thinker | Home</title>
+    <meta name="Description" content="Thinker - is service designed for recording, storing ideas and different thoughts">
+    <meta name="Keywords" content="Thinker, codeart, dataart, мысли, идеи, заметки, на память, запомнить, записать, важное">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="">
+    <!--         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
+    <!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
+    <!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+    <!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
 </head>
 <body ng-style="body">
-	<header class="mainHeader">
-		<div class="container">
-			<a href="index.html">Возврат на страницу авторизации (Временно)</a>
-		</div>
-	</header>
-	<main ng-controller="mainCtrl">		
-		<div class="container">
-			<div class="content">
-				<ul class="upperMenu clearfix">
-					<li><input type="search" placeholder="Ведите запрос для поиска"></li>
-					<li><button ng-click="">Search</button></li>
-					<li><button ng-click="newIdeaShowF()">Add Idea</button></li>
-					<li><a href="main.html"><button>All Ideas</button></a></li>
-					<li><a href="admin.html"><button>Admin Panel</button></a></li>
-				</ul>
-				<ul class="tabs clearfix">
-					<h1>Идиеи КОНКРЕТНОГО пользователя обрабатываться из данных с сервера и на данный момент она условная</h1>
-					<!-- <li ng-repeat="x in ideas">{{x}}</li> будет что-то в этом роде, где х одна идея, а ideas полученный массив -->
-					<li ng-click="selectedIdeaShowF()">
-						<img src="" alt="" height="50" width="50">
-						<div class="likes"><!-- обработка лайков --></div>
-						<p> ТЕСТОВЫЙ КЛИК НА ВЫБРАННУЮ ИДЕЮ<!-- краткое описание --></p>
-					</li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-				<div class="shadow" ng-show="shadowShow" ng-click="shadowClick()"></div>
 
-				<form ng-show="newIdeaShow" class="newIdea" method="post">
-					<div class="newIdeaHeader clearfix">
-						<h2>New Idea</h2>
-						<button type="button" ng-click="close()">&times;</button>
-					</div>
-					<input type="text" placeholder="Name">
-					<textarea name="" id="" cols="0" rows="10" placeholder="Discription"></textarea>
-					<input type="file">
-					<input type="text" placeholder="Tags">
-					<button>Store</button>
-					<button ng-click="close()">Cancel</button>
-				</form>
+    <header class="mainHeader">
+        <div class="container">
+            <a href="index.html">Возврат на страницу авторизации (Временно)</a>
+            <button class="logOut">Log Out</button>            
+        </div>
+    </header>
 
-				<div ng-show="selectedIdeaShow" class="selectedIdea">
-					<div class="selectedIdeaHeader clearfix">
-						<h2>Название выбранной идеи</h2>
-						<button type="button" ng-click="close()">&times;</button>
-					</div>
-					<div class="ideaImages">
-						<img src="" alt="" height="200" width="100">
-					</div>
-					<p>Описание задумки подробнее</p>
-					<div class="ideaTags">#круть #креслодиван</div>
-					<div class="ideaOwner">Автор: <span>Все тот же Вася</span></div>
-					<div class="likes">7yes     1no</div>
-					<div class="ideaComments">
-						<h3>Комментарии</h3>
-						<span class="comment">
-							<img src="" alt="">
-							<p>Автор</p>
-							<p>Текст по поводу и без</p>
-						</span>
-					</div>					
-				</div>
-			</div>
-		</div>
-	</div>
-</main>
-<footer class="mainFooter">
-	<div class="container"></div>
-</footer>
-<script type="text/javascript" src="controller/mainCtrl.js"></script>
+    <main ng-controller="userCtrl">
+        <div class="container">
+            <div class="content">
+
+                <div class="search">
+                    <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt="" /></button>
+                    <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
+                    <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
+                </div>
+
+                <div class="ideas">
+                    <div class="ideas-switcher">
+                        <a class="all-ideas" href="main.html" type="button" name="button">All Ideas</a>
+                        <button class="my-ideas active" name="button">My Ideas</button>
+                    </div>
+
+                    <ul class="tabs clearfix">
+                        <li ng-repeat="x in ideas" class="ideas-grid" ng-click="selectedIdeaShowF(x.ideaId)">
+                            <div class="viewout">
+                                <img class="" ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/{{x.files[0]}}" alt="Small preview">
+                                <div class="fitback">
+                                    <div class="likes"><img src="images/like.png" alt=""><p>100</p></div>
+                                    <div class="dislikes"><img src="images/dislike.png" alt=""><p>2</p></div>
+                                </div>
+                            </div>
+                            <p class="top-entry">{{x.description}}</p>
+                            <p class="description">{{x.name}}</p>
+                        </li>
+                    </ul>
+
+                    <div class="btn moreIdeasBtn" ng-show="moreIdeasBtn" ng-click="moreIdeasShowF()">More Ideas</div>
+
+                    <div class="shadow" ng-show="shadowShow" ng-click="shadowClick()"></div>
+
+                    <form ng-show="newIdeaShow" class="newIdea" method="post">
+                        <div class="newIdeaHeader clearfix">
+                            <h2>Create new <span>think</span></h2>
+                            <div type="button" ng-click="close()"></div>
+                        </div>
+                        <div class="box">
+                            <input type="text" placeholder="Name">
+                            <textarea name="" id="" cols="0" rows="10" placeholder="Discription"></textarea>
+                            <input type="file">
+                            <input type="text" placeholder="Tags">
+                            <div class="modalBtnBox clearfix">
+                                <input class="modalBtn" type="submit" value="Create">
+                                <div class="modalBtn" ng-click="close()"><p>Cancel</p></div>                                
+                            </div>
+                        </div>
+                    </form>
+
+                    <div ng-show="selectedIdeaShow" class="selectedIdea">
+                        <div class="selectedIdeaHeader clearfix">
+                            <h2>{{selectedIdea.description}}</h2>
+                            <div type="button" ng-click="close()"></div>
+                        </div>
+                        <div class="box">
+                            <ul class="ideaImages clearfix">
+                                <li ng-repeat="y in selectedIdea.files">
+                                    <img ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/{{x.files[$index]}}" alt="Image Preview" height="100" width="100">
+                                </li>
+                            </ul>
+                            <p>{{selectedIdea.name}}</p>
+                            <div class="tagsRow clearfix">
+                                <p class="ideaTags" ng-repeat="tag in selectedIdea.tags">{{selectedIdea.tags[$index]}}&nbsp;</p>
+                            </div>
+                            <div class="ideaOwner">Author: <span>{{selectedIdea.author.username}}</span></div>
+                            <div class="fitback">
+                                <a class="likes"><img src="images/like.png" alt=""><p>100</p></a>
+                                <a class="dislikes"><img src="images/dislike.png" alt=""><p>2</p></a>
+                            </div>
+                            <div class="ideaComments">
+                                <h3>Комментарии</h3>
+                                <span class="comment">
+                                    <img src="" alt="" height="50" width="50" alt="Avatar">
+                                    <p>Автор</p>
+                                    <p>Текст по поводу и без</p>
+                                </span>
+                            </div>                  
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mainFooter">
+        <div class="container"></div>
+    </footer>
+
+    <script type="text/javascript" src="controller/userCtrl.js"></script>
 </body>
 </html>

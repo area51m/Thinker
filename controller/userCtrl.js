@@ -1,6 +1,6 @@
 var app = angular.module("Thinker", []);
 
-app.controller('mainCtrl', function($scope, $http, $log) {
+app.controller('userCtrl', function($scope, $http, $log) {
 	$scope.body = {'background-image': '#ebebeb'};
 	$scope.newIdeaShow = false;
 	$scope.shadowShow = false;
@@ -46,7 +46,7 @@ app.controller('mainCtrl', function($scope, $http, $log) {
 		if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
 	};
 
-	$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/part")
+	$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/part/")
 	.then(function(response){
 		$scope.ideas = response.data;
 		if ($scope.ideas.length > 19) $scope.moreIdeasBtn = true;
