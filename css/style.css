@@ -151,11 +151,12 @@ body {
 	margin-top: 15px;
 	outline: none;
 	font-size: 18px;
-	padding: 20px;
+	padding: 5px;
 	background: transparent;
 	border: 1px solid #ff9c00;
 	color: #ADADAD;
 	border-radius: 4px;
+    -webkit-box-sizing: content-box;
 }
 
 ::-webkit-input-placeholder {
