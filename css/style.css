@@ -97,7 +97,7 @@ footer {
 }
 
 body {
- background-color: #E4E4E4;
+ background-color: white;
 }
 
 .loginBody {
@@ -154,7 +154,7 @@ body {
 	padding: 5px;
 	background: transparent;
 	border: 1px solid #ff9c00;
-	color: #ADADAD;
+	color: white;
 	border-radius: 4px;
     -webkit-box-sizing: content-box;
 }
@@ -258,9 +258,9 @@ form .btn {
 .content {
 	width: 100%;
 	height: 100%;
-	padding: 50px 0px 50px 0px;
+	padding: 180px 0 0 0;
 	margin: 0 auto;
-	background-color: #E4E4E4;
+	background-color: white;
 	position: relative;
 }
 .upperMenu,
@@ -293,7 +293,7 @@ form .btn {
     max-height: 85vh;
 	left: 50%;
 	top: 50%;
-	z-index: 1000;
+	z-index: 20100;
 	background-color: #ebebeb;
 	padding: 0;
 	transform: translate(-50%, -50%	);
@@ -407,7 +407,7 @@ input.modalBtn {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 900;
+	z-index: 20000;
 }
 .adminPanel {
 	width: 100%;
@@ -428,32 +428,38 @@ input.modalBtn {
 }
 
 .content {
-    width: 100%
-}
-.content .search {
     width: 100%;
+}
+.search {
+   /* position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);*/
+    max-width: 1200px;
     height: 80px;
     box-sizing: border-box;
     padding: 10px 20px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #ff9c00;
     position: relative;
-    background: #eee;
+    background: white;
     display: flex;
     justify-content: space-between;
+    z-index: 10000;
+    margin: 0 auto;
 }
-.content .search .add-idea {
+.search .add-idea {
     border: 1px solid black;
     border: 0;
     background: none;
     display: block;
     margin: 0;
 }
-.content .search .add-idea img{
+.search .add-idea img{
 	height: 100%;
 	width: auto;
 }
-.content .search .search-idea {
-    width: 80%;
+.search .search-idea {
+    width: 70%;
     padding: 10px;
     border-radius: 0;
     background: #D9D9D9;
@@ -471,48 +477,49 @@ input.modalBtn {
 .content .ideas {
     width: 100%
 }
-.content .ideas .ideas-switcher {
-    width: 100%
+.ideas-switcher {
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.content .ideas .ideas-switcher .all-ideas {
+.ideas-switcher .all-ideas {
     width: 50%;
     right: 20px;
     float: left;
     border-radius: 0;
-    background: #eee;
+    background: white;
     color: #000;
     height: 100%;
     border: 0;
-    padding: 15px;
+    padding: 5px;
     text-align: center;
     font-weight: bold;
     -webkit-appearance: none;
 }
-.content .ideas .ideas-switcher .all-ideas.active {
-    background: #ccc;
+.ideas-switcher .all-ideas.active {
+    background: #ff9c00;
     pointer-events: none;
 }
-.content .ideas .ideas-switcher .all-ideas:hover {
-    background: #ddd;
+.ideas .ideas-switcher .all-ideas:hover {
+    background: #FFDAA3;
 }
-.content .ideas .ideas-switcher .my-ideas {
+.ideas-switcher .my-ideas {
     width: 50%;
     right: 20px;
     float: right;
     border-radius: 0;
-    background: #eee;
+    background: white;
     color: #000;
     height: 100%;
     border: 0;
-    padding: 15px;
+    padding: 5px;
     text-align: center;
     font-weight: bold;
 }
-.content .ideas .ideas-switcher .my-ideas:hover {
-    background: #ddd;
+.ideas-switcher .my-ideas:hover {
+    background: #FFDAA3;
 }
-.content .ideas .ideas-switcher .my-ideas.active {
-    background: #ccc;
+.ideas-switcher .my-ideas.active {
+    background: #ff9c00;
     pointer-events: none;
 }
 .content .ideas .wrapper {
@@ -807,3 +814,63 @@ button.logOut {
     margin: 10px 20px;
     font-weight: bold;
 }
+.registerForm span {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+img#delete {
+    float: right;
+    padding: 0;
+    margin: 10px;
+    background: none;
+    height: 33px;
+    width: 30px;
+    cursor: pointer;
+}
+#BtnForEnter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: lightblue;
+    z-index: 10000000000000000;
+}
+.search a img:hover {
+    background-color: #FFDAA3;
+    border-radius: 5px;
+}
+.mainLogo {
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 50px;
+    padding: 0;
+    margin: 0;
+    z-index: 10000;
+    background: white;
+    padding-top: 10px;
+
+}
+.mainLogo img {
+    z-index: 11000;
+    height: 50px;
+    background: white;
+    position: relative;      
+}
+.mainLogo::after {
+    position: absolute;
+    top: 58.6px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    color: #ff9c00;
+    background: #ff9c00;
+    z-index: 10500;
+}
+.userPageContent {
+    padding-top: 10px;
+}
+

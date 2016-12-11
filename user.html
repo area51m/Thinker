@@ -6,12 +6,12 @@
 	<meta name="Description" content="Thinker- сервис предназначенный для записи и хранения идей и разных мыслей">
 	<meta name="Keywords" content="мысли, идеи, заметки, на память, запомнить, записать, важное">
 	<link rel="icon" href="">
-<!-- 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
+	<!-- 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">	
 	<script type="text/javascript" src="js/angular.min.js"></script>
-    <!-- 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
 	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
@@ -19,45 +19,44 @@
 </head>
 <body ng-style="body">
 
-	<header class="mainHeader">
-		<div class="container">
-			<a href="index.html">Возврат на страницу авторизации (Временно)</a>
-			<button class="logOut">Log Out</button>
-		</div>
-	</header>
 
-	<main ng-controller="adminCtrl">		
+	<div class="container">
+		<a href="index.html">Возврат на страницу авторизации (Временно)</a>
+		<button class="logOut">Log Out</button>
+	</div>
+
+	<a class="btn" id="BtnForEnter" href="index.html">Возврат на страницу авторизации (Временно)</a>
+
+	<main ng-controller="userCtrl">		
 		<div class="container">
-			<div class="content">
+			<div class="content userPageContent">
 				<ul class="upperMenu clearfix">
-				<!-- <li><input type="search" placeholder="Ведите запрос для поиска"></li>
-				<li><button ng-click="">Искать</button></li>
-				<li><button ng-click="newIdeaShowF()">Добавить идею</button></li>
-				<li><a href="userideas.html"><button>Мои идеи</button></a></li> -->
-				<li><a href="main.html"><button>Back to main page</button></a></li>
-			</ul>
-			<ul class="tabs clearfix">
-				<h1>User workplace</h1>
+					<li><a href="main.html"><button>Back to main page</button></a></li>
+				</ul>
 
-				<img src="" height="100" width="100">
-				<p>User Usererererer</p>
+				<div class="tabs clearfix">
+					<h1>User workplace</h1>
 
-				<div class="adminPanel">
-					<table>
-						<caption>List of Users</caption>
-						<tr><th>id</th><th>Login</th><th>e-mail</th><th>Premission</th></tr>
-						<tr ng-repeat="x in users"><td>{{x.userId}}</td><td>{{x.username}}</td><td>{{x.email}}</td><td><input type="checkbox"></td></tr>
-					</table>
-				</div>	
+					<img src="" height="100" width="100">
+					<p>User Usererererer</p>
 
+					<div class="adminPanel" ng-show="true"> <!-- в ng-show ставим true если это админ -->
+						<table>
+							<caption>List of Users</caption>
+							<tr><th>Login</th><th>e-mail</th><th>Premission</th></tr>
+							<tr ng-repeat="x in users"><td>{{x.username}}</td><td>{{x.email}}</td><td><input type="checkbox"></td></tr>
+						</table>
+					</div>	
+
+				</div>
 			</div>
 		</div>
 	</main>
 
-	<footer class="mainFooter">
+<!-- 	<footer class="mainFooter">
 		<div class="container"></div>
-	</footer>
+	</footer> -->
 
-	<script type="text/javascript" src="controller/adminCtrl.js"></script>
+	<script type="text/javascript" src="controller/userCtrl.js"></script>
 </body>
 </html>

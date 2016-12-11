@@ -17,30 +17,27 @@
     <!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
     <!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
 </head>
-<body ng-style="body">
+<body ng-style="body" ng-controller="mainCtrl">
 
-    <header class="mainHeader">
-        <div class="container">
-            <a href="index.html">Возврат на страницу авторизации (Временно)</a>
-            <button class="logOut">Log Out</button>           
+    <div class="mainLogo"><img src="images/Line_copy.png" alt="Thinker Logo" height="50">
+        <div class="search">
+            <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt="" /></button>
+            <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
+            <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
+            <button class="logOut">Log Out</button>
         </div>
-    </header>
+        <div class="ideas-switcher">
+            <button class="all-ideas active" type="button" name="button">All Ideas</button>
+            <a class="my-ideas" href="userideas.html" name="button">My Ideas</a>
+        </div>
+        
+    </div>
+    <a class="btn" id="BtnForEnter" href="index.html">Возврат на страницу авторизации (Временно)</a>
 
-    <main ng-controller="mainCtrl">
-        <div class="container">
-            <div class="content">
-
-                <div class="search">
-                    <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt="" /></button>
-                    <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
-                    <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
-                </div>
-
+    <main>
+        <div class="content">
+            <div class="container">
                 <div class="ideas">
-                    <div class="ideas-switcher">
-                        <button class="all-ideas active" type="button" name="button">All Ideas</button>
-                        <a class="my-ideas" href="userideas.html" name="button">My Ideas</a>
-                    </div>
 
                     <ul class="tabs clearfix">
                         <li ng-repeat="x in ideas" class="ideas-grid" ng-click="selectedIdeaShowF(x.ideaId)">
@@ -81,6 +78,7 @@
                         <div class="selectedIdeaHeader clearfix">
                             <h2>{{selectedIdea.description}}</h2>
                             <div type="button" ng-click="close()"></div>
+                            <img id="delete" src="images/can.png" alt="can" height="30" width="30" ng-show="true"> <!-- надо прятать если не принадлежит пользователю -->
                         </div>
                         <div class="box">
                             <ul class="ideaImages clearfix">
@@ -108,15 +106,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </main>
-
-    <footer class="mainFooter">
-        <div class="container"></div>
-    </footer>
-
-    <script type="text/javascript" src="controller/mainCtrl.js"></script>
+    </div>
+</main>
+<!-- 
+<footer class="mainFooter">
+<div class="container"></div>
+</footer>
+-->
+<script type="text/javascript" src="controller/mainCtrl.js"></script>
 </body>
 </html>
