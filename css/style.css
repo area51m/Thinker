@@ -97,7 +97,7 @@ footer {
 }
 
 body {
- background-color: white;
+   background-color: white;
 }
 
 .loginBody {
@@ -119,7 +119,6 @@ body {
     margin: 0 auto;
     padding: 0;
 }
-
 .regestration  {
 	position: absolute;
 	left: 50%;
@@ -129,7 +128,8 @@ body {
 	text-align: center;
 }
 .loginForm,
-.registerForm {
+.registerForm,
+.IForgot {
 	position: static;
 	width: 360px;
 	padding: 20px;
@@ -138,14 +138,13 @@ body {
 	text-align: center;
 	padding: 20px 0 0 0;
 }
-
 .registerForm {
 	height: 270px;
-
-
 }
 .loginForm input,
-.registerForm input {
+.registerForm input,
+.IForgot input,
+.IForgot button {
 	width: 100%;
 	height: 30px;
 	margin-top: 15px;
@@ -160,21 +159,29 @@ body {
 }
 
 ::-webkit-input-placeholder {
-   color: #ADADAD;
+ color: #ADADAD;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #ADADAD;
+ color: #ADADAD;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #ADADAD;
+ color: #ADADAD;
 }
 
 :-ms-input-placeholder {
-   color: #ADADAD;
+ color: #ADADAD;
 }
-
+.IForgot input[type=submit] {
+    float: right;
+    width: 40%;
+    margin-right: -12px;
+}
+.IForgot button.btn {
+    float: left;
+    width: 40%;
+}
 .regestration .entry {
     font-size: 18px;
     display: inline-block;
@@ -185,56 +192,57 @@ body {
 	color: #ff9800;
 	margin-right: 10px;
 }
-
 .regestration .entry, main .orange-text  {
     margin-top: 30px;
 }
-
-
-
 .bottom-text,
 .bottom-text-underline {
     color: #fff;
     font-family: "OpenSansSemiBold";
     display: block;
-    margin-top: -38px;
 }
-
-
-
-.bottom-text-underline {
-    margin: -10px;
-    border-bottom: 1px solid #fff;
-    display: inline-block;
-}
-
 .loginForm a,
 .registerForm a {
-	color: #ff9c00;
 	text-decoration: none;
-  padding: 7px 14px;
-  background: #42a5f5;
-  float: right;
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  border-radius: 4px;
+    padding: 7px 14px;
+    background: #42a5f5;
+    float: right;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 4px;
 }
-
+.loginForm span.IForgot {
+    display: inline;
+    float: none;
+    color: #ff9c00;
+    background: transparent;
+    font-size: 14px;
+    padding: 0;
+    cursor: pointer;
+}
 .regestration .site-logo img {
 	width: 100%;
 }
-
-.bottom-text, .bottom-text-underline {
-	margin-top: 0;
+.loginForm div {
+    margin-top: 10px;
 }
-
 .bottom-text {
-	margin-top: 15px;
+    margin-top: -15px;
 }
-
+.loginForm .bottom-text-underline {
+	margin-top: 0;
+    display: inline;
+    float: none;
+    font-size: 16px;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
 .loginForm a:hover,
-.registerForm a:hover {
+.registerForm a:hover,
+.loginForm span.IForgot:hover {
 	text-decoration: underline;
 }
 .clearfix::after {
@@ -289,14 +297,14 @@ form .btn {
 	position: fixed;
 	min-width: 800px;
     max-width: 85vh;
-	min-height: 50px;
+    min-height: 50px;
     max-height: 85vh;
-	left: 50%;
-	top: 50%;
-	z-index: 20100;
-	background-color: #ebebeb;
-	padding: 0;
-	transform: translate(-50%, -50%	);
+    left: 50%;
+    top: 50%;
+    z-index: 20100;
+    background-color: #ebebeb;
+    padding: 0;
+    transform: translate(-50%, -50%	);
     background: #999;
 }
 .newIdea .box, .selectedIdea .box {
@@ -660,63 +668,6 @@ input.modalBtn {
     color: #555;
     height: 18px;
 }
-
-@media (max-width: 1200px) {
-	.tabs {
-		width: 900px;
-	}
-	.tabs li {
-		width: 20%;
-	}
-}
-@media (max-width: 900px) {
-	.tabs {
-		width: 600px;
-	}
-	.tabs li {
-		width: 33.33%;
-	}
-	.content .search .search-idea {
-		width: 75%;
-	}
-}
-
-
-@media (max-width: 600px) {
-	.tabs {
-		width: 290px;
-	}
-	.content .search {
-		padding: 20px;
-		box-sizing: border-box;
-		height: auto;
-	}
-	.content .search .add-idea, .content .search .search-idea {
-		transform: none;
-		position: static;
-		float: none;
-		width: 100%;
-	}
-
-	.content .search .add-idea {
-		margin-bottom: 20px;
-	}
-
-	.tabs li {
-		width: 100%;
-	}
-
-	.loginForm, .registerForm{
-		width: 100%;
-	}
-	.regestration {
-		width: 90%;
-	}
-
-	.newIdea, .selectedIdea {
-       width: 90%;
-   }
-}
 .loginForm .registerBtn {
     display: inline;
     float: right;
@@ -726,13 +677,25 @@ input.modalBtn {
     padding: 0;
     margin-bottom: 10px;
 }
-.loginForm p:first-child {
+.loginForm p:first-child,
+.IForgot p:first-child,
+.IForgot p:nth-child(2) {
     position: relative;
     display: inline;
     float: left;
     color: #ADADAD;
     font-size: 20px;
     margin: 0 0 10px 0;
+}
+.IForgot p:nth-child(2) {
+    float: right;
+    margin-left: -12px;
+}
+.IForgot .info {
+    color: white;
+    margin-top: 25px;
+    font-size: 16px;
+    font-family: "OpenSansRegular";
 }
 .loginForm p:first-child::after {
     content: '';
@@ -873,4 +836,59 @@ img#delete {
 .userPageContent {
     padding-top: 10px;
 }
+.likes img:hover,
+.dislikes img:hover {
+   transform: scale(2);
+}
 
+
+@media (max-width: 1200px) {
+    .tabs {
+        width: 900px;
+    }
+    .tabs li {
+        width: 20%;
+    }
+}
+@media (max-width: 900px) {
+    .tabs {
+        width: 600px;
+    }
+    .tabs li {
+        width: 33.33%;
+    }
+    .mainLogo .search .search-idea {
+        width: 75%;
+    }
+}
+@media (max-width: 600px) {
+    .tabs {
+        width: 290px;
+    }
+    .content .search {
+        padding: 20px;
+        box-sizing: border-box;
+        height: auto;
+    }
+    .mainLogo .search .add-idea, .content .search .search-idea {
+        transform: none;
+        position: static;
+        float: none;
+        width: 100%;
+    }
+    .mainLogo .search .add-idea {
+        margin-bottom: 20px;
+    }
+    .tabs li {
+        width: 100%;
+    }
+    .loginForm, .registerForm{
+        width: 100%;
+    }
+    .regestration {
+        width: 90%;
+    }
+    .newIdea, .selectedIdea {
+     width: 90%;
+ }
+}
