@@ -295,8 +295,8 @@ form .btn {
 }
 .newIdea, .selectedIdea {
 	position: fixed;
-	min-width: 800px;
-    max-width: 85vh;
+    min-width: 60vw;
+    max-width: 85vw;
     min-height: 50px;
     max-height: 85vh;
     left: 50%;
@@ -843,6 +843,9 @@ img#delete {
 
 
 @media (max-width: 1200px) {
+    .container {
+        width: 900px;
+    }
     .tabs {
         width: 900px;
     }
@@ -851,6 +854,9 @@ img#delete {
     }
 }
 @media (max-width: 900px) {
+    .container {
+        width: 600px;
+    }
     .tabs {
         width: 600px;
     }
@@ -860,8 +866,14 @@ img#delete {
     .mainLogo .search .search-idea {
         width: 75%;
     }
+    .newIdea, .selectedIdea {
+        width: 85vw;
+ }
 }
 @media (max-width: 600px) {
+    .container {
+        width: 400px;
+    }
     .tabs {
         width: 290px;
     }
@@ -889,6 +901,6 @@ img#delete {
         width: 90%;
     }
     .newIdea, .selectedIdea {
-     width: 90%;
+     width: 90vw;
  }
 }
