@@ -22,17 +22,21 @@
 
     <div class="mainLogo"><img src="images/Line_copy.png" alt="Thinker Logo" height="50">
         <div class="search">
-            <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt="" /></button>
-            <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
-            <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
-            <button class="logOut">Log Out</button>
+            <div class="left-bar">
+                <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt="" /></button>
+                <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
+            </div>
+            <div class="right-bar">
+                <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
+                <button class="logOut">Log Out</button>
+            </div>
         </div>
         <div class="ideas-switcher">
             <a class="all-ideas" href="main.html" type="button" name="button">All Ideas</a>
             <button class="my-ideas active"  name="button">My Ideas</button>
         </div>
-        
     </div>
+
     <a class="btn" id="BtnForEnter" href="index.html">Возврат на страницу авторизации (Временно)</a>
 
     <main>
@@ -113,8 +117,8 @@
     </main>
 
 <!--     <footer class="mainFooter">
-        <div class="container"></div>
-    </footer> -->
+<div class="container"></div>
+</footer> -->
 
 
 </body>

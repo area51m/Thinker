@@ -22,17 +22,21 @@
 
     <div class="mainLogo"><img src="images/Line_copy.png" alt="Thinker Logo" height="50">
         <div class="search">
-            <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt="" /></button>
-            <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
-            <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
-            <button class="logOut">Log Out</button>
+            <div class="left-bar">
+                <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt=""></button>
+                <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
+            </div>
+            <div class="right-bar">
+                <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
+                <button class="logOut">Log Out</button>
+            </div>
         </div>
         <div class="ideas-switcher">
             <button class="all-ideas active" type="button" name="button">All Ideas</button>
             <a class="my-ideas" href="userideas.html" name="button">My Ideas</a>
         </div>
-        
     </div>
+
     <a class="btn" id="BtnForEnter" href="index.html">Возврат на страницу авторизации (Временно)</a>
 
     <main>
@@ -70,7 +74,7 @@
                             <input type="text" placeholder="Tags">
                             <div class="modalBtnBox clearfix">
                                 <input class="modalBtn" type="submit" value="Create">
-                                <div class="modalBtn" ng-click="close()"><p>Cancel</p></div>                                
+                                <div class="modalBtn" ng-click="close()"><p>Cancel</p></div>
                             </div>
                         </div>
                     </form>
@@ -79,7 +83,7 @@
                         <div class="selectedIdeaHeader clearfix">
                             <h2>{{selectedIdea.description}}</h2>
                             <div type="button" ng-click="close()"></div>
-                            <img id="delete" src="images/can.png" alt="can" height="30" width="30" ng-show="true"> <!-- надо прятать если не принадлежит пользователю -->
+                            <!-- <img id="delete" src="images/can.png" alt="can" height="30" width="30" ng-show="true">  --><!-- надо прятать если не принадлежит пользователю -->
                         </div>
                         <div class="box">
                             <ul class="ideaImages clearfix">
@@ -103,7 +107,7 @@
                                     <p>Автор</p>
                                     <p>Текст по поводу и без</p>
                                 </span>
-                            </div>                  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,7 +115,7 @@
         </div>
     </div>
 </main>
-<!-- 
+<!--
 <footer class="mainFooter">
 <div class="container"></div>
 </footer>
