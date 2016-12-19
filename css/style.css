@@ -103,9 +103,6 @@ body {
 .loginBody {
     background-color: #353d40;
     background:  url('../images/background.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
 }
 .bodyDiv {
@@ -115,7 +112,7 @@ body {
 .container {
     width: 1200px;
     height: 100%;
-    /*	border: 2px solid red;*/
+    /*  border: 2px solid red;*/
     margin: 0 auto;
     padding: 0;
 }
@@ -123,7 +120,8 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 500px;
     text-align: center;
 }
@@ -217,7 +215,7 @@ body {
     float: none;
     color: #ff9c00;
     background: transparent;
-    font-size: 14px;
+    font-size: 16px;
     padding: 0;
     cursor: pointer;
 }
@@ -274,7 +272,7 @@ form .btn {
 .upperMenu,
 .tabs {
     list-style: none;
-    /*	border: 2px solid red;*/
+    /*  border: 2px solid red;*/
 }
 .tabs {
     padding: 10px;
@@ -305,7 +303,8 @@ form .btn {
     z-index: 20100;
     background-color: #ebebeb;
     padding: 0;
-    transform: translate(-50%, -50%	);
+    -webkit-transform: translate(-50%, -50% );
+            transform: translate(-50%, -50% );
     background: #ebebeb;
 }
 .newIdea .box, .selectedIdea .box {
@@ -316,6 +315,13 @@ form .btn {
     /*display: block;*/
     width: 100%;
     resize: none;
+    outline: transparent;
+}
+.newIdea .box input[type="text"]:hover,
+.newIdea .box textarea:hover,
+.newIdea .box input[type="text"]:focus,
+.newIdea .box textarea:focus {
+    outline: 0.5px solid #ff9c00;
 }
 .selectedIdea {
     background-color: #ebebeb;
@@ -398,12 +404,14 @@ input.modalBtn {
 }
 .newIdeaHeader div::before,
 .selectedIdeaHeader div::before {
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 .newIdeaHeader div::after,
 .selectedIdeaHeader div::after {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 .shadow {
     position: fixed;
@@ -447,8 +455,12 @@ padding: 10px 20px;
 border-bottom: 2px solid #ff9c00;
 position: relative;
 background: white;
+display: -webkit-box;
+display: -ms-flexbox;
 display: flex;
-justify-content: space-between;
+-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
 z-index: 10000;
 margin: 0 auto;
 }
@@ -852,7 +864,8 @@ img#delete {
 }
 .likes img:hover,
 .dislikes img:hover {
-    transform: scale(2);
+    -webkit-transform: scale(2);
+            transform: scale(2);
 }
 .modalBtnBox .modalBtn, .box input {
     padding: 5px 15px;
@@ -912,8 +925,12 @@ input[type=file] {
         float: right;
         width: 100%;
         display: block;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
     .search .right-bar button.logOut {
         height: auto;
@@ -940,7 +957,8 @@ input[type=file] {
         height: auto;
     }
     .mainLogo .search .add-idea, .content .search .search-idea {
-        transform: none;
+        -webkit-transform: none;
+                transform: none;
         position: static;
         float: none;
     }
@@ -961,6 +979,10 @@ input[type=file] {
     }
     .selectedIdeaHeader h2 {
         width: auto;
+    }
+    .regestration .orange-text,
+    .regestration .white-text {
+        font-size: 13px;
     }
 }
 .userPageContent {
