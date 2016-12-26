@@ -7,6 +7,7 @@
     <meta name="Keywords" content="Thinker, codeart, dataart, мысли, идеи, заметки, на память, запомнить, записать, важное">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="">
+    <!-- <base href="/resources/"> -->
     <!--         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -27,7 +28,7 @@
                 <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
             </div>
             <div class="right-bar">
-                <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
+                <a href="user.html"><img src="images/avatar.png" width="50" height="50" alt="User"></a>
                 <button class="logOut">Log Out</button>
             </div>
         </div>
@@ -45,15 +46,21 @@
                 <div class="ideas">
 
                     <ul class="tabs clearfix">
-                        <li ng-repeat="x in ideas" class="ideas-grid" ng-click="selectedIdeaShowF(x.ideaId)">
+                        <li ng-repeat="x in ideas" class="ideas-grid">
                             <div class="viewout">
-                                <img class="" ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/{{x.files[0]}}" alt="Small preview">
+                                <img class="" ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/cover" alt="Small preview" ng-click="selectedIdeaShowF(x.ideaId)">
                                 <div class="fitback">
-                                    <div class="likes"><img src="images/like.png" alt=""><p>100</p></div>
-                                    <div class="dislikes"><img src="images/dislike.png" alt=""><p>2</p></div>
+                                    <div class="likes">
+                                        <span class="glyphicon glyphicon-thumbs-up" ng-style="GetLikesColorF(x)" ng-click="LikeF(x)" style="color: {{likeColor}}"></span>
+                                        <p>{{x.likes}}</p>
+                                    </div>
+                                    <div class="dislikes">
+                                        <span class="glyphicon glyphicon-thumbs-down" ng-style="GetLikesColorF(x)" ng-click="DisLikeF(x)" style="color: {{DislikeColor}}"></span>
+                                        <p>{{x.dislikes}}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <p class="top-entry">{{x.description}}</p>
+                            <p class="top-entry" ng-click="selectedIdeaShowF(x.ideaId)">{{x.description}}</p>
                             <p class="description">{{x.name}}</p>
                         </li>
                     </ul>
@@ -88,17 +95,17 @@
                         <div class="box">
                             <ul class="ideaImages clearfix">
                                 <li ng-repeat="y in selectedIdea.files">
-                                    <img ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/{{x.files[$index]}}" alt="Image Preview" height="100" width="100">
+                                    <img ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/{{FileF(x.files[$index])}}" alt="Image Preview" height="100" width="100">
                                 </li>
                             </ul>
                             <p>{{selectedIdea.name}}</p>
                             <div class="tagsRow clearfix">
                                 <p class="ideaTags" ng-repeat="tag in selectedIdea.tags">{{selectedIdea.tags[$index]}}&nbsp;</p>
                             </div>
-                            <div class="ideaOwner">Author: <span>{{selectedIdea.author.username}}</span></div>
+                            <div class="ideaOwner">Author: <span>{{selectedIdea.username}}</span></div>
                             <div class="fitback">
-                                <a class="likes"><img src="images/like.png" alt=""><p>100</p></a>
-                                <a class="dislikes"><img src="images/dislike.png" alt=""><p>2</p></a>
+                                <a class="likes"><img src="images/like.png" alt=""><p>{{selectedIdea.likes}}</p></a>
+                                <a class="dislikes"><img src="images/dislike.png" alt=""><p>{{selectedIdea.dislikes}}</p></a>
                             </div>
                             <div class="ideaComments">
                                 <h3>Комментарии</h3>
@@ -110,6 +117,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

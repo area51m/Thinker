@@ -7,6 +7,7 @@
 	<meta name="Keywords" content="Thinker, codeart, dataart, мысли, идеи, заметки, на память, запомнить, записать, важное">
 	<meta name="viewport" content="width=device-width">
 	<link rel="icon" href="">
+	<!-- <base href="/resources/"> -->
 	<!-- 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -38,22 +39,24 @@
 				<div><span ng-click="iForgotSwitchF()" class="IForgot">I forgot my password</span></div><br>
 				<p class="bottom-text">By using up you agree to our</p>
 				<a href="#" class="bottom-text-underline">Tearms of Service</a><br>
-				<input class="btn" type="submit" value="Sign In">
+				<input class="btn" type="submit" value="Sign In" ng-click="LoadF()">
 			</form>
 
 			<form class="registerForm" name="registerForm1" ng-show="registerForm" action="post" novalidate>
 				<a class="loginBtn" ng-click="switchFormF()" href="#">Login</a>
 				<p>Registration</p><br>
-				<input name="registerLogin" type="text" ng-model="registerLogin" placeholder="Username" ng-minlength="4" ng-maxlength="8" required><br>
+				<input name="registerLogin" type="text" ng-model="registerLogin" placeholder="Username" ng-minlength="4" ng-maxlength="15" required><br>
 				<span ng-show="registerForm1.registerLogin.$error.minlength" class="help-block">Username is too short.</span>
 				<span ng-show="registerForm1.registerLogin.$error.maxlength" class="help-block">Username is too long.</span>
 				<input name="registerEmail" ng-model="registerEmail" type="email" placeholder="E-mail address" required><br>
 				<span ng-show="registerForm1.registerEmail.$error.email">Invalid email address<br></span>
-				<input name="registerPassword1" ng-model="registerPassword1" type="password" placeholder="Password" required><br>
+				<input name="registerPassword1" ng-model="registerPassword1" type="password" placeholder="Password" ng-minlength="4" ng-maxlength="15" required><br>
+				<span ng-show="registerForm1.registerPassword1.$error.minlength" class="help-block">Password is too short.</span>
+				<span ng-show="registerForm1.registerPassword1.$error.maxlength" class="help-block">Password is too long.</span>
 				<input name="registerPassword2" ng-model="registerPassword2" type="password" placeholder="Confirm password" required><br>
 				<span ng-show="registerPassword1 != registerPassword2">Passwords do not match<br></span>
 				<input class="btn" type="submit" value="Registration" ng-disabled="registerForm1.registerLogin.$error.minlength || registerForm1.registerLogin.$error.maxlength || registerPassword1 != registerPassword2 ||  
-				registerForm1.registerEmail.$dirty && registerForm1.registerEmail.$invalid">
+				registerForm1.registerEmail.$dirty && registerForm1.registerEmail.$invalid || registerForm1.registerPassword1.$error.minlength || registerForm1.registerPassword1.$error.maxlength" ng-click="LoadF()">
 			</form>
 
 			<form class="IForgot" name="IForgot1" ng-show="iForgot" novalidate>
@@ -63,15 +66,15 @@
 				<input name="IForgotEmail" type="text" placeholder="E-mail or Username" required><br>
 				<div>
 					<button class="btn" ng-click="iForgotSwitchF()">Back</button>
-					<input class="btn" type="submit" value="Send">
+					<input class="btn" type="submit" value="Send" ng-click="LoadF()">
 				</div>				
 			</form>
 
 		</div>		
 	</div>
-	
-	<div class="container"></div>
-	
 
+	<a href="#" class="playmarket"><img src="images/playmarket.png" width="129" height="45" alt="playmarket"></a>
+<!-- 	<div class="container"></div> -->
+	
 </body>
 </html>

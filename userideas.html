@@ -6,6 +6,7 @@
     <meta name="Description" content="Thinker - is service designed for recording, storing ideas and different thoughts">
     <meta name="Keywords" content="Thinker, codeart, dataart, мысли, идеи, заметки, на память, запомнить, записать, важное">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/resources/"> -->
     <link rel="icon" href="">
     <!--         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -27,7 +28,7 @@
                 <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
             </div>
             <div class="right-bar">
-                <a href="user.html"><img src="images/user.png" width="50" height="50" alt="User"></a>
+                <a href="user.html"><img src="images/avatar.png" width="50" height="50" alt="User"></a>
                 <button class="logOut">Log Out</button>
             </div>
         </div>
@@ -83,7 +84,7 @@
                         <div class="selectedIdeaHeader clearfix">
                             <h2>{{selectedIdea.description}}</h2>
                             <div type="button" ng-click="close()"></div>
-                            <img id="delete" src="images/can.png" alt="can" height="30" width="30" ng-show="true"> <!-- надо прятать если не принадлежит пользователю -->
+                            <img id="delete" ng-click=(DeleteIdeaF(selectedIdea)) src="images/can3.png" alt="can" height="30" width="30" ng-show="true"> <!-- надо прятать если не принадлежит пользователю -->
                         </div>
                         <div class="box">
                             <ul class="ideaImages clearfix">

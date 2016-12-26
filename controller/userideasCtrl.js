@@ -20,17 +20,17 @@ app.controller('userideasCtrl', function($scope, $http, $log) {
 			$scope.selectedIdea = response.data;
         		//console.log($scope.selectedIdea);
         	});
-		$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/likes/idea" + ideaId)
-		.then(function(response){
-			$scope.selectedIdeaLikes = response.data;
-        		//console.log($scope.selectedIdeaLikes);
-        	});
-		$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/comments/idea" + ideaId)
+		$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/comments/idea/" + ideaId)
 		.then(function(response){
 			$scope.selectedIdeaComments = response.data;
 				//console.log($scope.selectedIdeaComments);
 			});
 
+	};
+
+	$scope.DeleteIdeaF = function(selectedIdea) {
+		console.log($scope.selectedIdea.ideaId + ' must be deleted');
+		$http.delete('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/' + selectedIdea.ideaId);
 	};
 
 	$scope.close = function() {

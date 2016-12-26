@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Thinker | Main</title>
+	<meta name="Description" content="Thinker - is service designed for recording, storing ideas and different thoughts">
+	<meta name="Keywords" content="Thinker, codeart, dataart, мысли, идеи, заметки, на память, запомнить, записать, важное">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="">
+	<!-- <base href="/resources/"> -->
+	<!-- 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- 	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="controller/loginCtrl.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/angular-route.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/angular-animate.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+	<!-- 	<script type="text/javascript" src="js/angular-modal-service.min.js"></script> -->
+</head>
+<body class="loginBody">
+	
+<!-- 	<div class="container">
+		<a href="main.html">Считаем что пользователь прошел авторизацию</a>
+	</div>
+	 -->
+	<div>
+		<div class="regestration">
+
+			<a href="login.html"><div class="site-logo"><img src="images/Line_copy.png" alt=""></div></a>
+			<p class="orange-text entry">thinker</p><p class="white-text entry">is the service which help you remember your ideas</p>
+
+			<div class="loginForm" action="post" ng-show="loginForm" action="/login" novalidate>
+			<h1 style="color: white; font-size: 46px;">Your email is confirmed</h1>
+				<!-- <p>Login</p>
+				<a class="registerBtn" ng-click="switchFormF()" href="#">Registration</a><br>
+				<input name="username" placeholder="Username" type="text" ng-model="username" required><br>
+				<input name="password" placeholder="Password" type="password" ng-model="password" required><br>
+				<div><span ng-click="iForgotSwitchF()" class="IForgot">I forgot my password</span></div><br>
+				<p class="bottom-text">By using up you agree to our</p>
+				<a href="#" class="bottom-text-underline">Tearms of Service</a><br>
+				<input class="btn" type="submit" value="Sign In"> -->
+			</div>
+<!-- 
+			<form class="registerForm" name="registerForm1" ng-show="registerForm" action="post" novalidate>
+				<a class="loginBtn" ng-click="switchFormF()" href="#">Login</a>
+				<p>Registration</p><br>
+				<input name="registerLogin" type="text" ng-model="registerLogin" placeholder="Username" ng-minlength="4" ng-maxlength="8" required><br>
+				<span ng-show="registerForm1.registerLogin.$error.minlength" class="help-block">Username is too short.</span>
+				<span ng-show="registerForm1.registerLogin.$error.maxlength" class="help-block">Username is too long.</span>
+				<input name="registerEmail" ng-model="registerEmail" type="email" placeholder="E-mail address" required><br>
+				<span ng-show="registerForm1.registerEmail.$error.email">Invalid email address<br></span>
+				<input name="registerPassword1" ng-model="registerPassword1" type="password" placeholder="Password" required><br>
+				<input name="registerPassword2" ng-model="registerPassword2" type="password" placeholder="Confirm password" required><br>
+				<span ng-show="registerPassword1 != registerPassword2">Passwords do not match<br></span>
+				<input class="btn" type="submit" value="Registration" ng-disabled="registerForm1.registerLogin.$error.minlength || registerForm1.registerLogin.$error.maxlength || registerPassword1 != registerPassword2 ||  
+				registerForm1.registerEmail.$dirty && registerForm1.registerEmail.$invalid">
+			</form>
+
+			<form class="IForgot" name="IForgot1" ng-show="iForgot" novalidate>
+				<p>Login</p>
+				<p>Registration</p><br>
+				<p class="info">We will send you email with new password</p>
+				<input name="IForgotEmail" type="text" placeholder="E-mail or Username" required><br>
+				<div>
+					<button class="btn" ng-click="iForgotSwitchF()">Back</button>
+					<input class="btn" type="submit" value="Send">
+				</div>				
+			</form> -->
+
+		</div>		
+	</div>
+	
+<!-- 	<div class="container"></div> -->
+	
+
+</body>
+</html>

@@ -14,5 +14,5 @@ app.controller('loginCtrl', function($scope) {
 		$scope.loginForm = !$scope.loginForm;
 		$scope.iForgot = !$scope.iForgot;
 		console.log($scope.iForgot, 'YYY');
-	};		
+	};
 });
