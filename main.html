@@ -25,7 +25,8 @@
         <div class="search">
             <div class="left-bar">
                 <button class="add-idea" ng-click="newIdeaShowF()"><img src="images/plus.png" alt=""></button>
-                <input class="search-idea" type="search" placeholder="Ведите запрос для поиска" name="name" value="">
+                <input class="search-idea" type="search" placeholder="Enter search request" ng-model="SearchRequest" name="name" value="">
+                <button class="searchBtn"><img src="images/lupa.png" alt="" ng-click="SearchF(SearchRequest)"></button>
             </div>
             <div class="right-bar">
                 <a href="user.html"><img src="images/avatar.png" width="50" height="50" alt="User"></a>
@@ -33,8 +34,8 @@
             </div>
         </div>
         <div class="ideas-switcher">
-            <button class="all-ideas active" type="button" name="button">All Ideas</button>
-            <a class="my-ideas" href="userideas.html" name="button">My Ideas</a>
+            <button class="all-ideas" ng-class="mainpage" ng-click="MainPageF()" type="button" name="button">All Ideas</button>
+            <button class="my-ideas" ng-class="userideas" ng-click="UserIdeasF()" type="button" name="button">My Ideas</button>
         </div>
     </div>
 
@@ -51,11 +52,11 @@
                                 <img class="" ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/cover" alt="Small preview" ng-click="selectedIdeaShowF(x.ideaId)">
                                 <div class="fitback">
                                     <div class="likes">
-                                        <span class="glyphicon glyphicon-thumbs-up" ng-style="GetLikesColorF(x)" ng-click="LikeF(x)" style="color: {{likeColor}}"></span>
+                                        <span class="glyphicon glyphicon-thumbs-up" ng-style="GetLikesColorF(x)" ng-click="LikeF(likeColor, DislikeColor, x)" style="color: {{likeColor}}"></span>
                                         <p>{{x.likes}}</p>
                                     </div>
                                     <div class="dislikes">
-                                        <span class="glyphicon glyphicon-thumbs-down" ng-style="GetLikesColorF(x)" ng-click="DisLikeF(x)" style="color: {{DislikeColor}}"></span>
+                                        <span class="glyphicon glyphicon-thumbs-down" ng-style="GetLikesColorF(x)" ng-click="DisLikeF(likeColor, DislikeColor, x)" style="color: {{DislikeColor}}"></span>
                                         <p>{{x.dislikes}}</p>
                                     </div>
                                 </div>
@@ -90,7 +91,7 @@
                         <div class="selectedIdeaHeader clearfix">
                             <h2>{{selectedIdea.description}}</h2>
                             <div type="button" ng-click="close()"></div>
-                            <!-- <img id="delete" src="images/can.png" alt="can" height="30" width="30" ng-show="true">  --><!-- надо прятать если не принадлежит пользователю -->
+                            <img id="delete" src="images/can3.png" alt="can" height="30" width="30" ng-show="DeleteShowF()" ng-click="DeleteIdeaF(selectedIdea)"><!-- надо прятать если не принадлежит пользователю -->
                         </div>
                         <div class="box">
                             <ul class="ideaImages clearfix">
