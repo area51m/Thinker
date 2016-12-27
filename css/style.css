@@ -860,17 +860,22 @@ margin: 0 auto;
     display: inline;
     float: left;
 }
-.selectedIdea .likes {
+.selectedIdea .glyphicon-thumbs-up {
     float: left;
     cursor: pointer;
+    font-size: 20px;
 }
-.selectedIdea .dislikes {
+.selectedIdea .glyphicon-thumbs-down {
     float: right;
     cursor: pointer;
+    font-size: 20px;
 }
 .selectedIdea .dislikes,
 .selectedIdea .likes {
     text-decoration: none;
+}
+.selectedIdea .glyphicon p {
+    font-size: 14px;
 }
 .ideaImages {
     list-style: none;
@@ -985,7 +990,14 @@ img#delete {
     align-items: center;
     align-content: center;
 }
-
+.author:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.ideaTags:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 input[type=file] {
     padding: 15px 0;
 }

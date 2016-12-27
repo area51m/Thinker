@@ -8,15 +8,15 @@ app.controller('mainCtrl', function($scope, $http, $log) {
 	$scope.moreIdeasBtn = false;
 	$scope.mainpage = 'active';
 	$scope.userideas = '';
-	// $scope.likeColor = "black";
-	// $scope.dislikeColor = "black";
+	$scope.likeColor = "black";
+	$scope.dislikeColor = "black";
 
 	//Первый запрос
 	$http.get("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/part")
 	.then(function(response){
 		$scope.ideas = response.data;
 		if ($scope.ideas.length > 19) $scope.moreIdeasBtn = true;
-		console.log($scope.ideas);
+		//console.log($scope.ideas);
 	});
 
 	//Возврат на основную страницу
@@ -88,49 +88,64 @@ app.controller('mainCtrl', function($scope, $http, $log) {
 		if ($scope.selectedIdeaShow) $scope.selectedIdeaShow = false;
 	};
 
-	$scope.GetLikesColorF = function(x) {
-		if (x.userLikeStatus == 0) {$scope.likeColor = "black"; $scope.DislikeColor = "black";};
-		if (x.userLikeStatus == 1) {$scope.likeColor = "#03FC17"; $scope.DislikeColor = "black";};
-		if (x.userLikeStatus == -1) {$scope.likeColor = "black"; $scope.DislikeColor = "red";};
-	};	
+	// $scope.GetLikesColorF = function(likeColor, DislikeColor, x) {
+	// 	console.log(likeColor, DislikeColor);
+	// 	var likeStatus = x.userLikeStatus;
+	// 	if (likeStatus == 0) return [this.likeColor = "black", this.DislikeColor = "black",];
+	// 	if (likeStatus == 1) return [this.likeColor = "#03FC17", this.DislikeColor = "black",];
+	// 	if (likeStatus == -1) return [this.likeColor = "black", this.DislikeColor = "red",];
+	// 	console.log(likeColor, DislikeColor);
+	// };	
 
 	$scope.LikeF = function(likeColor, DislikeColor, x) {
+		if (this.DislikeColor == "red") {x.dislikes = x.dislikes -1;};
+		if (this.DislikeColor == "red !important") {x.dislikes = x.dislikes -1;};
 		if (this.likeColor == "black") {
 			var status = JSON.stringify({ "status" : true });
+			x.likes = x.likes+1;
 			$http.post('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/likes/idea/'+x.ideaId, status);
 			return [this.likeColor = "#03FC17 !important", this.DislikeColor = "black"];
 		};
 		if (this.likeColor == "black !important") {
 			var status = JSON.stringify({ "status" : true });
+			x.likes = x.likes+1;
 			$http.post('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/likes/idea/'+x.ideaId, status);			
 			return [this.likeColor = "#03FC17 !important", this.DislikeColor = "black"];
 		};
 		if (this.likeColor == "#03FC17 !important") {
+			x.likes = x.likes-1;
 			$http.delete('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/likes/idea/'+x.ideaId);
 			return [this.likeColor = "black !important", this.DislikeColor];
 		};
 		if (this.likeColor == "#03FC17") {
+			x.likes = x.likes-1;
 			$http.delete('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/likes/idea/'+x.ideaId);
 			return [this.likeColor = "black !important", this.DislikeColor];
-		};		
+		};
 	};
 
 	$scope.DisLikeF = function(likeColor, DislikeColor, x) {
+		if (this.likeColor == "#03FC17") {x.likes = x.likes -1;};
+		if (this.likeColor == "#03FC17 !important") {x.likes = x.likes -1;};
 		if (this.DislikeColor == "black") {
 			var status = JSON.stringify({ "status" : false });
+			x.dislikes = x.dislikes +1;
 			$http.post('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/'+x.ideaId, false);
 			return [this.DislikeColor = "red !important", this.likeColor = "black"];
 		};
 		if (this.DislikeColor == "black !important") {
 			var status = JSON.stringify({ "status" : false });
+			x.dislikes = x.dislikes +1;
 			$http.post('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/'+x.ideaId, false);			
 			return [this.DislikeColor = "red !important", this.likeColor = "black"];
 		};
 		if (this.DislikeColor == "red !important") {
+			x.dislikes = x.dislikes -1;
 			$http.delete('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/'+x.ideaId);
 			return this.DislikeColor = "black !important";
 		};
 		if (this.DislikeColor == "red") {
+			x.dislikes = x.dislikes -1;
 			$http.delete('http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/'+x.ideaId);
 			return this.DislikeColor = "black !important";
 		};		
@@ -143,15 +158,33 @@ app.controller('mainCtrl', function($scope, $http, $log) {
 		$http.post("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/search", config)
 		.then(function(response){
 			$scope.ideas = response.data;
-			console.log($scope.ideas);
-        	});
-		console.log($scope.ideas);
+			});
+	};
+	$scope.SearchByAuthor = function(selectedIdea) {
+		$scope.mainpage = '';
+		$scope.userideas = '';
+		$scope.close();
+		var config = JSON.stringify({criteria:"author", content: selectedIdea.userId, part: "", });
+		$http.post("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/search", config)
+		.then(function(response){
+			$scope.ideas = response.data;
+			});
+	};
+	$scope.SearchTag = function(tag) {
+		$scope.mainpage = '';
+		$scope.userideas = '';
+		$scope.close();
+		var config = JSON.stringify({criteria:"tags", content: tag, part: "", });
+		$http.post("http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/search", config)
+		.then(function(response){
+			$scope.ideas = response.data;
+			});
 	};
 
 	$scope.FileF = function(file) {
+		// console.log(file);
 		if (file == undefined) return;
 		else {
-		// console.log(file);
 		var f = (file.split('.')[0]+'/'+file.split('.')[1]);
 		// console.log(f);
 		return f;};

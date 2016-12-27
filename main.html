@@ -29,7 +29,7 @@
                 <button class="searchBtn"><img src="images/lupa.png" alt="" ng-click="SearchF(SearchRequest)"></button>
             </div>
             <div class="right-bar">
-                <a href="user.html"><img src="images/avatar.png" width="50" height="50" alt="User"></a>
+                <a href="#"><img src="images/avatar.png" width="50" height="50" alt="User"></a>
                 <button class="logOut">Log Out</button>
             </div>
         </div>
@@ -52,17 +52,19 @@
                                 <img class="" ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/cover" alt="Small preview" ng-click="selectedIdeaShowF(x.ideaId)">
                                 <div class="fitback">
                                     <div class="likes">
-                                        <span class="glyphicon glyphicon-thumbs-up" ng-style="GetLikesColorF(x)" ng-click="LikeF(likeColor, DislikeColor, x)" style="color: {{likeColor}}"></span>
+                                    <!-- ng-init="GetLikesColorF(likeColor, DislikeColor, x)" -->
+                                        <span class="glyphicon glyphicon-thumbs-up" ng-click="LikeF(likeColor, DislikeColor, x)" style="color: {{likeColor}}"></span>
                                         <p>{{x.likes}}</p>
                                     </div>
                                     <div class="dislikes">
-                                        <span class="glyphicon glyphicon-thumbs-down" ng-style="GetLikesColorF(x)" ng-click="DisLikeF(likeColor, DislikeColor, x)" style="color: {{DislikeColor}}"></span>
+                                    <!-- ng-style="GetLikesColorF(x)" -->
+                                        <span class="glyphicon glyphicon-thumbs-down" ng-click="DisLikeF(likeColor, DislikeColor, x)" style="color: {{DislikeColor}}"></span>
                                         <p>{{x.dislikes}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <p class="top-entry" ng-click="selectedIdeaShowF(x.ideaId)">{{x.description}}</p>
-                            <p class="description">{{x.name}}</p>
+                            <p class="top-entry" ng-click="selectedIdeaShowF(x.ideaId)">{{x.name}}</p>
+                            <p class="description">{{x.description}}</p>
                         </li>
                     </ul>
 
@@ -89,24 +91,25 @@
 
                     <div ng-show="selectedIdeaShow" class="selectedIdea">
                         <div class="selectedIdeaHeader clearfix">
-                            <h2>{{selectedIdea.description}}</h2>
+                            <h2>{{selectedIdea.name}}</h2>
                             <div type="button" ng-click="close()"></div>
                             <img id="delete" src="images/can3.png" alt="can" height="30" width="30" ng-show="DeleteShowF()" ng-click="DeleteIdeaF(selectedIdea)"><!-- надо прятать если не принадлежит пользователю -->
                         </div>
                         <div class="box">
                             <ul class="ideaImages clearfix">
                                 <li ng-repeat="y in selectedIdea.files">
-                                    <img ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{x.ideaId}}/{{FileF(x.files[$index])}}" alt="Image Preview" height="100" width="100">
+                                    <img ng-src="http://thinker-codeart.44fs.preview.openshiftapps.com/restapi/ideas/{{selectedIdea.ideaId}}/{{FileF(selectedIdea.files[$index])}}" alt="Image Preview" height="100" width="100">
                                 </li>
                             </ul>
-                            <p>{{selectedIdea.name}}</p>
+                            <p>{{selectedIdea.description}}</p>
                             <div class="tagsRow clearfix">
-                                <p class="ideaTags" ng-repeat="tag in selectedIdea.tags">{{selectedIdea.tags[$index]}}&nbsp;</p>
+                                <p class="ideaTags" ng-click="SearchTag(selectedIdea.tags[$index])" ng-repeat="tag in selectedIdea.tags">{{selectedIdea.tags[$index]}}&nbsp;</p>
                             </div>
-                            <div class="ideaOwner">Author: <span>{{selectedIdea.username}}</span></div>
+                            <div class="ideaOwner">Author: <span class="author" ng-click="SearchByAuthor(selectedIdea)">{{selectedIdea.username}}</span></div>
                             <div class="fitback">
-                                <a class="likes"><img src="images/like.png" alt=""><p>{{selectedIdea.likes}}</p></a>
-                                <a class="dislikes"><img src="images/dislike.png" alt=""><p>{{selectedIdea.dislikes}}</p></a>
+                            <!-- ng-style="GetLikesColorF(selectedIdea) -->
+                                <span class="glyphicon glyphicon-thumbs-up" ng-click="" style="color: {{likeColor}}"><p>{{selectedIdea.likes}}</p></span>                                
+                                <span class="glyphicon glyphicon-thumbs-down" ng-click="" style="color: {{DislikeColor}}"><p>{{selectedIdea.dislikes}}</p></span>                                
                             </div>
                             <div class="ideaComments">
                                 <h3>Комментарии</h3>
